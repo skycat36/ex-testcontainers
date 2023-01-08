@@ -1,0 +1,13 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true

@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: ex-testcontainers
+  dao.exceptiontranslation.enabled: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/extest
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 50
+
+  flyway:
+    enabled: true
+    schemas: extest
+    #Наименование файла с изменениями, который считается базовым
+    baseline-description: baseline
+    # Версия набора изменений
+    baseline-version: 0.1.0
+    # Флаг использования набора изменений
+    baseline-on-migrate: true
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    locations: classpath:db/migration
+
+  web:
+    resources:
+      add-mappings: false
+
+elasticsearch:
+  clustername: mkyong-cluster
+  uri: localhost:9200
